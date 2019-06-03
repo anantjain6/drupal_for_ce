@@ -40,7 +40,7 @@ services:
           "${DOCROOT}/sites/default/"
 
         # Generate a unique hash_salt to secure the site
-        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
+        # echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
           "${DOCROOT}/sites/default/settings.local.php"
 
         # Install/update packages managed by composer, including drush
