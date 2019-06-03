@@ -92,6 +92,7 @@ services:
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
         # scp ${TUGBOAT_ROOT}/drupal_for_ce.sql.gz /tmp/database.sql.gz
-        - wget https://github.com/anantjain6/drupal_for_ce/blob/master/drupal_for_ce.sql
-        - mysql tugboat < drupal_for_ce.sql
+        - wget https://github.com/anantjain6/drupal_for_ce/blob/master/drupal_for_ce.sql.gz?raw=true
+        - mv drupal_for_ce.sql.gz?raw=true drupal_for_ce.sql.gz
+        - zcat drupal_for_ce.sql.gz | mysql tugboat
         # rm /tmp/database.sql.gz
