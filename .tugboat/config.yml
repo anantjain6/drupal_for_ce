@@ -91,6 +91,6 @@ services:
         # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
-        - scp ${TUGBOAT_ROOT}/drupal_for_ce.sql.gz /tmp/database.sql.gz
-        - zcat /tmp/database.sql.gz | mysql tugboat
-        - rm /tmp/database.sql.gz
+        # scp ${TUGBOAT_ROOT}/drupal_for_ce.sql.gz /tmp/database.sql.gz
+        - zcat "${TUGBOAT_ROOT}/drupal_for_ce.sql.gz" | mysql tugboat
+        # rm /tmp/database.sql.gz
