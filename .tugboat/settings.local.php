@@ -9,3 +9,5 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+
+$settings['hash_salt'] = 'Hu-PZ3ZRrrbuHTCeyhCoUWG9dPtnKb9ss9suQb07weBz633VWCyZf8VSmEnekrTGCPbweXzfPQ';
