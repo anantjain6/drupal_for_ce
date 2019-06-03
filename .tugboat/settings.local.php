@@ -10,4 +10,4 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 
-$settings['hash_salt'] = 'Hu-PZ3ZRrrbuHTCeyhCoUWG9dPtnKb9ss9suQb07weBz633VWCyZf8VSmEnekrTGCPbweXzfPQ';
+// $settings['hash_salt'] = 'Hu-PZ3ZRrrbuHTCeyhCoUWG9dPtnKb9ss9suQb07weBz633VWCyZf8VSmEnekrTGCPbweXzfPQ';
