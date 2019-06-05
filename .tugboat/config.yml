@@ -44,8 +44,8 @@ services:
           "${DOCROOT}/sites/default/settings.local.php"
 
         # Install/update packages managed by composer, including drush
-        - composer require drush/drush:dev-master
         - composer install --no-ansi
+        - composer require drush/drush
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
