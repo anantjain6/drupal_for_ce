@@ -59,7 +59,7 @@ services:
         #  Download and Install Collaborative Editors module
         - cd "${DOCROOT}/modules"
         - git clone -b dev https://github.com/anantjain6/collaborative_editors
-        - drush en collaborative_editors
+        - drush -r "${DOCROOT}" en collaborative_editors
 
         # Alternatively, another common practice is to use the
         # stage_file_proxy Drupal module. This module lets Drupal serve
