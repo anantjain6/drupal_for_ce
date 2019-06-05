@@ -22,9 +22,9 @@ services:
         - a2enmod headers rewrite
 
         # Install drush-launcher
-        - wget -O /usr/local/bin/drush
-          https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
-        - chmod +x /usr/local/bin/drush
+        # wget -O /usr/local/bin/drush
+        #  https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+        # chmod +x /usr/local/bin/drush
 
         # Link the document root to the expected path. This example links /web
         # to the docroot
@@ -40,10 +40,11 @@ services:
           "${DOCROOT}/sites/default/"
 
         # Generate a unique hash_salt to secure the site
-        # echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
-        #  "${DOCROOT}/sites/default/settings.local.php"
+        - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >>
+          "${DOCROOT}/sites/default/settings.local.php"
 
         # Install/update packages managed by composer, including drush
+        - composer require drush/drush:dev-master
         - composer install --no-ansi
 
         # Copy the files directory from an external server. The public
