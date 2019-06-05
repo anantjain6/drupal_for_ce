@@ -75,8 +75,8 @@ services:
       # from the base preview.
       build:
         - drush status
-        - drush -r "${DOCROOT}" cr
-        - drush -r "${DOCROOT}" updb -y
+        - vendor/bin/drush -r "${DOCROOT}" cr
+        - vendor/bin/drush -r "${DOCROOT}" updb -y
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
