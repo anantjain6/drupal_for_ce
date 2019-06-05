@@ -56,6 +56,11 @@ services:
         # find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
         - chmod -R 777 "${DOCROOT}"
 
+        #  Download and Install Collaborative Editors module
+        - cd "${DOCROOT}/modules"
+        - git clone -b dev https://github.com/anantjain6/collaborative_editors
+        - drush en collaborative_editors
+
         # Alternatively, another common practice is to use the
         # stage_file_proxy Drupal module. This module lets Drupal serve
         # files from another publicly-accessible Drupal site instead of
@@ -74,8 +79,8 @@ services:
       # from the base preview.
       build:
         - drush status
-        - drush -r "${DOCROOT}" cr
-        - drush -r "${DOCROOT}" updb -y
+        # drush -r "${DOCROOT}" cr
+        # drush -r "${DOCROOT}" updb -y
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
