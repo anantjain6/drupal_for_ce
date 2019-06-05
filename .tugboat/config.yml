@@ -57,9 +57,8 @@ services:
         - chmod -R 777 "${DOCROOT}"
 
         #  Download and Install Collaborative Editors module
-        - cd "${DOCROOT}/modules"
-        - git clone -b dev https://github.com/anantjain6/collaborative_editors
-        - drush -r "${DOCROOT}" en collaborative_editors
+        - git clone -b dev https://github.com/anantjain6/collaborative_editors "${DOCROOT}/modules/collaborative_editors"
+        - drush -r "${DOCROOT}" pm-enable collaborative_editors
 
         # Alternatively, another common practice is to use the
         # stage_file_proxy Drupal module. This module lets Drupal serve
@@ -78,9 +77,9 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - drush status
-        # drush -r "${DOCROOT}" cr
-        # drush -r "${DOCROOT}" updb -y
+        # drush status
+        - drush -r "${DOCROOT}" cr
+        - drush -r "${DOCROOT}" updb -y
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
