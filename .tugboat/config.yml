@@ -59,6 +59,7 @@ services:
         #  Download and Install Collaborative Editors module
         - git clone -b dev https://github.com/anantjain6/collaborative_editors "${DOCROOT}/modules/collaborative_editors"
         - drush -r "${DOCROOT}" pm-enable collaborative_editors
+        - drush -r "${DOCROOT}" pm-enable libraries
         - drush -r "${DOCROOT}" pm-enable ce_etherpad
 
         # Alternatively, another common practice is to use the
