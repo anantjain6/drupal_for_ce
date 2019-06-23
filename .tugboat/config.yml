@@ -103,3 +103,6 @@ services:
         - mv drupal_for_ce.sql.gz?raw=true drupal_for_ce.sql.gz
         - zcat drupal_for_ce.sql.gz | mysql tugboat
         - rm drupal_for_ce.sql.gz
+  php:
+    # Use PHP 7.2 with Apache
+    image: tugboatqa/nodejs:10
