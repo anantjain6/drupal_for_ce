@@ -109,4 +109,4 @@ services:
     image: tugboatqa/node:10
   etherpad:
     # Use Etherpad 1.7.5
-    image: tugboatqa/etherpad:1.7.5
+    image: etherpad/etherpad:1.7.5
