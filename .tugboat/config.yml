@@ -104,9 +104,9 @@ services:
         - mv drupal_for_ce.sql.gz?raw=true drupal_for_ce.sql.gz
         - zcat drupal_for_ce.sql.gz | mysql tugboat
         - rm drupal_for_ce.sql.gz
- node:
-  image: tugboatqa/node:10
-  commands:
-    build:
-      - git clone https://github.com/ether/etherpad-lite/
-      # etherpad-lite/bin/run.sh
+  node:
+    image: tugboatqa/node:10
+    commands:
+      build:
+        - git clone https://github.com/ether/etherpad-lite/
+        # etherpad-lite/bin/run.sh
