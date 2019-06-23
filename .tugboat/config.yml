@@ -45,6 +45,7 @@ services:
 
         # Install/update packages managed by composer, including drush
         - composer install --no-ansi
+        - composer require 0x46616c6b/etherpad-lite-client
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
@@ -106,3 +107,15 @@ services:
   node:
     # Use Node JS
     image: tugboatqa/node:10
+
+    # A set of commands to run while building this service
+    commands:
+      # Commands that build the site. This is where you would add things
+      # like feature reverts or any other drush commands required to
+      # set up or configure the site. When a preview is built from a
+      # base preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
+      # from the base preview.
+      build:
+        - git clone https://github.com/ether/etherpad-lite/
+        - etherpad-lite/bin/run.sh
