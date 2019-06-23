@@ -105,17 +105,8 @@ services:
         - zcat drupal_for_ce.sql.gz | mysql tugboat
         - rm drupal_for_ce.sql.gz
   node:
-    # Use Node JS
+    # Use Node JS 10
     image: tugboatqa/node:10
-
-    # A set of commands to run while building this service
-    commands:
-      # Commands that build the site. This is where you would add things
-      # like feature reverts or any other drush commands required to
-      # set up or configure the site. When a preview is built from a
-      # base preview, the build workflow starts here, skipping the init
-      # and update steps, because the results of those are inherited
-      # from the base preview.
-      build:
-        - git clone https://github.com/ether/etherpad-lite/
-        - etherpad-lite/bin/run.sh
+  etherpad:
+    # Use Etherpad 1.7.5
+    image: tugboatqa/etherpad:1.7.5
