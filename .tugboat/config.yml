@@ -106,6 +106,7 @@ services:
         - rm drupal_for_ce.sql.gz
   node:
     image: tugboatqa/node:10
+    expose: 9001
     commands:
       init:
         - mkdir -p /etc/service/etherpad
