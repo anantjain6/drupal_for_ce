@@ -107,6 +107,9 @@ services:
   node:
     image: tugboatqa/node:10
     commands:
-      build:
-        - git clone https://github.com/ether/etherpad-lite/
-        # etherpad-lite/bin/run.sh
+      init:
+        - mkdir -p /etc/service/etherpad
+        - echo "#!/bin/sh" > /etc/service/etherpad/run
+        - git clone https://github.com/anantjain6/etherpad_for_ce
+        - echo "etherpad-lite/bin/run.sh" >> /etc/service/etherpad/run
+        - chmod +x /etc/service/etherpad/run
