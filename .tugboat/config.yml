@@ -112,5 +112,5 @@ services:
         - mkdir -p /etc/service/etherpad
         - echo "#!/bin/sh" > /etc/service/etherpad/run
         - git clone https://github.com/anantjain6/etherpad_for_ce
-        - echo "etherpad-lite/bin/run.sh" >> /etc/service/etherpad/run
+        - echo "etherpad_for_ce/bin/run.sh" >> /etc/service/etherpad/run
         - chmod +x /etc/service/etherpad/run
