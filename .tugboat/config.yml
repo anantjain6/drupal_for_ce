@@ -45,7 +45,6 @@ services:
 
         # Install/update packages managed by composer, including drush
         - composer install --no-ansi
-        - composer require 0x46616c6b/etherpad-lite-client
 
         # Copy the files directory from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
@@ -58,7 +57,7 @@ services:
         - chmod -R 777 "${DOCROOT}"
 
         #  Download and Install Collaborative Editors module
-        - git clone -b dev7_2 https://github.com/anantjain6/collaborative_editors "${DOCROOT}/modules/collaborative_editors"
+        - git clone -b dev8 https://github.com/anantjain6/collaborative_editors "${DOCROOT}/modules/collaborative_editors"
         - drush -r "${DOCROOT}" pm-enable collaborative_editors
         - drush -r "${DOCROOT}" pm-enable ce_google_docs
 
@@ -104,13 +103,3 @@ services:
         - mv drupal_for_ce.sql.gz?raw=true drupal_for_ce.sql.gz
         - zcat drupal_for_ce.sql.gz | mysql tugboat
         - rm drupal_for_ce.sql.gz
-  node:
-    image: tugboatqa/node:10
-    expose: 9001
-    commands:
-      init:
-        - mkdir -p /etc/service/etherpad
-        - echo "#!/bin/sh" > /etc/service/etherpad/run
-        - git clone https://github.com/anantjain6/etherpad_for_ce
-        - echo "/etherpad_for_ce/bin/run.sh --root" >> /etc/service/etherpad/run
-        - chmod +x /etc/service/etherpad/run
